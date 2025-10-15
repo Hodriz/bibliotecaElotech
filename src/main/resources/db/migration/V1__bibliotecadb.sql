@@ -6,7 +6,7 @@ registration_date DATE NOT NULL,
 tel VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE author (
+CREATE TABLE authors (
 id BIGSERIAL PRIMARY KEY,
 name VARCHAR(255) NOT NULL,
 lastName VARCHAR(255) NOT NULL UNIQUE,
@@ -19,7 +19,8 @@ title VARCHAR(500) NOT NULL,
 author VARCHAR(255) NOT NULL,
 isbn VARCHAR(50) NOT NULL,
 publication_date DATE NOT NULL,
-category VARCHAR(255) NOT NULL
+category VARCHAR(255) NOT NULL,
+status VARCHAR(20)NOT NULL,
 );
 
 

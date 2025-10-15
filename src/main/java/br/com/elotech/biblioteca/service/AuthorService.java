@@ -19,7 +19,7 @@ public class AuthorService {
         return authorRepository.save(author);
     }
 
-    public List<Author> authorList(){
+    public List<Author> listAuthors(){
         return authorRepository.findAll();
     }
 

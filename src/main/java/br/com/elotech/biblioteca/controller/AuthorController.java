@@ -23,7 +23,7 @@ public class AuthorController {
 
     @GetMapping
     public List<Author> listAuthor(){
-        return authorService.authorList();
+        return authorService.listAuthors();
     }
 
     @GetMapping("/{id}")
@@ -36,7 +36,7 @@ public class AuthorController {
         return authorService.authorUpdate(id, author);
     }
 
-    @PutMapping("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteAuthor(@PathVariable Long id){
         String message = authorService.deleteAuthor(id);
         return ResponseEntity.ok(message);
