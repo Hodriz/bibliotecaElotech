@@ -73,9 +73,14 @@ public class BookLoanService {
         bookLoanRepository.save(loan);
     }
 
-    public String deleteBook (Long id){
+    public String deleteBookLoan (Long id){
         if (bookLoanRepository.findById(id).isPresent()){
-            bookRepository.deleteById(id);
+            BookLoan loan =bookLoanRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Empréstimo não encontrado"));
+            Book book =loan.getBook();
+            bookRepository.getById(book.getId());
+            book.setStatus(Status.FREE);
+            bookLoanRepository.deleteById(id);
+
         }else{throw new IllegalArgumentException("registro não encontrado");}
         return "registro deletado !!";
     }

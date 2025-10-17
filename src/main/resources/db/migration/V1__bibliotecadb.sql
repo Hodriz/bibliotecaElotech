@@ -12,15 +12,22 @@ name VARCHAR(255) NOT NULL,
 lastName VARCHAR(255) NOT NULL UNIQUE,
 );
 
+CREATE TABLE genre (
+    id BIGSERIAL PRIMARY KEY,
+    genre VARCHAR(255) NOT NULL
+);
+
+
 
 CREATE TABLE books (
-id BIGSERIAL PRIMARY KEY,
-title VARCHAR(500) NOT NULL,
-author VARCHAR(255) NOT NULL,
-isbn VARCHAR(50) NOT NULL,
-publication_date DATE NOT NULL,
-category VARCHAR(255) NOT NULL,
-status VARCHAR(20)NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    title VARCHAR(500) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    isbn VARCHAR(50) NOT NULL,
+    publication_date DATE NOT NULL,
+    category_id BIGINT NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES genre(id)
 );
 
 

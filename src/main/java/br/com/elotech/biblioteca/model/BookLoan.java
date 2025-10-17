@@ -44,7 +44,7 @@ public class BookLoan {
     }
 
     public void setLoanReturn(@NotNull LocalDate loanReturn) {
-        if (loanReturn.isAfter(LocalDate.now())) {
+        if (!loanReturn.isBefore(LocalDate.now())) {
             this.loanReturn = loanReturn;
         } else {
             throw new IllegalArgumentException(" Data de Cadastro não pode ser menor que a data atual!!");

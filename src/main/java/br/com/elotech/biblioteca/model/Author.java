@@ -1,6 +1,7 @@
 package br.com.elotech.biblioteca.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,7 @@ public class Author {
     @Column
     private String lastName;
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Book> books = new ArrayList<>();
 
 

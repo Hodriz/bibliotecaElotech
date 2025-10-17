@@ -30,8 +30,10 @@ public class Book {
     @NotNull
     @Column(name = "publication_date")
     private LocalDate publicationDate;
-    @NotBlank
-    private String category;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Genre category;
     @NotNull
     @Enumerated
     private Status status = Status.FREE;
@@ -57,7 +59,7 @@ public class Book {
         return this.publicationDate;
     }
 
-    public @NotBlank String getCategory() {
+    public @NotNull Genre getCategory() {
         return this.category;
     }
 
@@ -85,7 +87,7 @@ public class Book {
         this.publicationDate = publicationDate;
     }
 
-    public void setCategory(@NotBlank String category) {
+    public void setCategory(@NotNull Genre category) {
         this.category = category;
     }
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/loans")
+@RequestMapping("api/loans")
 public class BookLoanController {
 
     @Autowired
@@ -36,7 +36,7 @@ public class BookLoanController {
 
     @DeleteMapping("/{id}")
     public String deleteBookLoan(@PathVariable Long id){
-        return bookLoanService.deleteBook(id);
+        return bookLoanService.deleteBookLoan(id);
     }
 
 }
